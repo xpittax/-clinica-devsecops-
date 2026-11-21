@@ -1,7 +1,10 @@
-rules:- id: sql-taint
-languages: [javascript]
-severity: ERROR
-message: Dato del usuario llega a una consulta SQL concatenada (CWE-89).
-mode: taint
-pattern-sources:- pattern: req.$FUENTE.$X
-pattern-sinks:- pattern: '"..." + $Y'
+rules:
+  - id: sql-taint
+    languages: [javascript]
+    severity: ERROR
+    message: Dato del usuario llega a una consulta SQL concatenada (CWE-89).
+    mode: taint
+    pattern-sources:
+      - pattern: req.$FUENTE.$X
+    pattern-sinks:
+      - pattern: '"..." + $Y'
